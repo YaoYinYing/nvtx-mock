@@ -1,0 +1,4 @@
+[submodule "nvtx"]
+	path = nvtx
+	url = https://github.com/NVIDIA/NVTX.git
+	branch = release-v3
