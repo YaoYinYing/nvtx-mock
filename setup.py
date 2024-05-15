@@ -21,7 +21,7 @@ setup(
     name='nvtx-mock',
     version='0.1.0',
     author='Yinying Yao',
-    author_email='yaoyy.hi at gmail.com',
+    author_email='yaoyy.hi@gmail.com',
     description='A mock package for NVTX C headers.',
     ext_modules=[Extension('dummy_extension', sources=['dummy.c'])],  # A dummy extension to trigger the build process
     cmdclass={'build_ext': CustomBuildExt},
