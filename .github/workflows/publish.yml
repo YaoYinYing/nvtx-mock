@@ -22,6 +22,8 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel twine
         tree | echo 'Never mind'
         ls $(dirname $(which python))/../include
+        git submodule init
+        git submodule update
 
     - name: Build and upload package
       env:
