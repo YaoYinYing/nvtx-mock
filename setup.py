@@ -8,8 +8,11 @@ from setuptools.command.build_ext import build_ext
 python_include_path = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(sys.executable)), '..', 'include'))
 
 def copy_headers():
-    print(f'Copying headers nvtx/c/include/nvtx3 to {python_include_path}')
-    shutil.copytree('nvtx/c/include/nvtx3',os.path.join(python_include_path,'nvtx3'))
+    target_dir=os.path.join(python_include_path,'nvtx3')
+    print(f'Copying headers nvtx/c/include/nvtx3 to {target_dir}')
+    if os.path.exists(target_dir):
+        print(f'Warning: {target_dir} already exists and will be overwritten.')
+    shutil.copytree('nvtx/c/include/nvtx3',target_dir, dirs_exist_ok=True)
 
 class CustomBuildExt(build_ext):
     def run(self):
@@ -19,10 +22,10 @@ class CustomBuildExt(build_ext):
 # Package metadata
 setup(
     name='nvtx-mock',
-    version='0.1.0',
+    version='0.1.1',
     author='Yinying Yao',
     author_email='yaoyy.hi@gmail.com',
     description='A mock package for NVTX C headers.',
-    ext_modules=[Extension('dummy_extension', sources=['dummy.c'])],  # A dummy extension to trigger the build process
+    ext_modules=[Extension('dummy_extension', sources=[])],  # A dummy extension to trigger the build process
     cmdclass={'build_ext': CustomBuildExt},
 )
