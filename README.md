@@ -20,7 +20,7 @@ You can install NVTX-Mock directly from PyPI using `pip`:
 ```sh
 pip install nvtx-mock
 ```
-This command will clone the repository, build the package, and install it, copy those NVTX headers to Python's `include` directory.
+This command copy those NVTX headers to Python's `include` directory.
 ```shell
 ls $(dirname $(which python))/../include |grep nvtx
 ```
