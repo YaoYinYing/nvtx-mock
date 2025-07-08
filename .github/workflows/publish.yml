@@ -31,6 +31,11 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
         tree | echo 'Never mind'
-        python setup.py sdist bdist_wheel
+        # Build only source distribution (no need for wheels)
+        python setup.py sdist
+        
+        # Optional: List include directories if you need to debug/include headers
         ls $(dirname $(which python))/../include
-        python -m twine upload dist/*
+        
+        # Upload only the source distribution (.tar.gz)
+        python -m twine upload dist/*.tar.gz
