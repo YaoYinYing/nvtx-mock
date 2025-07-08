@@ -11,8 +11,9 @@ def copy_headers():
     target_dir=os.path.join(python_include_path,'nvtx3')
     print(f'Copying headers nvtx/c/include/nvtx3 to {target_dir}')
     if os.path.exists(target_dir):
-        print(f'Warning: {target_dir} already exists and will be overwritten.')
-    shutil.copytree('nvtx/c/include/nvtx3',target_dir, dirs_exist_ok=True)
+        print(f'Warning: {target_dir} already exists.')
+    else:
+        shutil.copytree('nvtx/c/include/nvtx3',target_dir)
 
 class CustomBuildExt(build_ext):
     def run(self):
@@ -22,7 +23,7 @@ class CustomBuildExt(build_ext):
 # Package metadata
 setup(
     name='nvtx-mock',
-    version='0.1.1',
+    version='0.1.2',
     author='Yinying Yao',
     author_email='yaoyy.hi@gmail.com',
     description='A mock package for NVTX C headers.',
