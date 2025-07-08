@@ -1,0 +1,2 @@
+include nvtx/c/include/nvtx3/*.h
+recursive-include nvtx/c/include/nvtx3 *
