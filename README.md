@@ -2,6 +2,8 @@
 
 NVTX-Mock is a Python package that enables using the NVIDIA NVTX (NVIDIA Tools Extension Library) on platforms without CUDA support, such as macOS. It provides a mock implementation of the NVTX C headers, allowing you to develop and test your code that uses NVTX markers and ranges on these platforms.
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/YaoYinYing/nvtx-mock)
+
 ## Features
 
 - Mocks the NVTX C headers for non-CUDA platforms like macOS.
